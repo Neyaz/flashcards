@@ -28,6 +28,7 @@ gem 'rails_12factor', group: :production
 gem 'levenshtein'
 gem 'whenever', require: false
 gem 'http_accept_language'
+gem 'responders', '~> 2.0'
 gem 'routing-filter'
 gem 'rollbar'
 gem 'newrelic_rpm'
