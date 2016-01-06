@@ -1,6 +1,6 @@
 == README
 
-{<img src="https://travis-ci.org/elavretskiy/flashcards.svg?branch=seventh-task"
+{<img src="https://travis-ci.org/Neyaz/flashcards.svg?branch=refactoring"
 alt="Build Status" />}[https://travis-ci.org/Neyaz/flashcards]
 
 {<img src="https://codeclimate.com/github/Neyaz/flashcards/badges/gpa.svg" />}[https://codeclimate.com/github/Neyaz/flashcards]
