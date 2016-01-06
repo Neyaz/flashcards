@@ -25,4 +25,23 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
+
+  def get_card_by_request_param
+    if params[:id]
+      @card = current_user.cards.find(params[:id])
+    else
+      if current_user.current_block
+        @card = current_user.current_block.cards.pending.first
+        @card ||= current_user.current_block.cards.repeating.first
+      else
+        @card = current_user.cards.pending.first
+        @card ||= current_user.cards.repeating.first
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 end
