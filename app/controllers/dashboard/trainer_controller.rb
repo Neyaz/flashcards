@@ -6,9 +6,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
 
   def review_card
     @card = current_user.cards.find(params[:card_id])
-
     check_result = @card.check_translation(trainer_params[:user_translation])
-
     if check_result[:state]
       check_distant(check_result)
       redirect_to trainer_path

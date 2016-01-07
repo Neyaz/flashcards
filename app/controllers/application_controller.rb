@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    if check_and_get_locale && I18n.available_locales.include?(check_and_get_locale.to_sym)
+    if check_and_get_locale &&
+     I18n.available_locales.include?(check_and_get_locale.to_sym)
       session[:locale] = I18n.locale = check_and_get_locale
     else
       session[:locale] = I18n.locale = I18n.default_locale
@@ -21,18 +22,22 @@ class ApplicationController < ActionController::Base
     if params[:id]
       @card = current_user.cards.find(params[:id])
     else
-      if current_user.current_block
-        @card = current_user.current_block.cards.pending.first
-        @card ||= current_user.current_block.cards.repeating.first
-      else
-        @card = current_user.cards.pending.first
-        @card ||= current_user.cards.repeating.first
-      end
+      @card = current_card
     end
 
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  def current_card
+    if current_user.current_block
+      @card = current_user.current_block.cards.pending.first ||
+       current_user.current_block.cards.repeating.first
+    else
+      @card = current_user.cards.pending.first ||
+       current_user.cards.repeating.first
     end
   end
 

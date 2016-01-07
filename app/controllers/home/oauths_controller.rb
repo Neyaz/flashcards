@@ -10,8 +10,8 @@ class Home::OauthsController < Home::BaseController
     provider = auth_params[:provider]
     if @user = login_from(provider)
       redirect_to trainer_path,
-                  notice: (t "log_in_is_successful_provider_notice",
-                                        provider: provider.titleize)
+                notice: (t 'log_in_is_successful_provider_notice',
+                provider: provider.titleize)
     else
       create_user_from_provaider(provider)
     end
@@ -24,17 +24,16 @@ class Home::OauthsController < Home::BaseController
   end
 
   def create_user_from_provaider(provider)
-    begin
-      @user = create_from(provider)
-      reset_session
-      auto_login(@user)
-      redirect_to trainer_path,
-                  notice: (t "log_in_is_successful_provider_notice",
-                  provider: provider.titleize)
+    @user = create_from(provider)
+    reset_session
+    auto_login(@user)
+    redirect_to trainer_path,
+                notice: (t 'log_in_is_successful_provider_notice',
+                provider: provider.titleize)
     rescue
       redirect_to user_sessions_path,
-                  alert: (t "log_out_failed_provider_alert",
-                  provider: provider.titleize)
+                alert: (t 'log_out_failed_provider_alert',
+                provider: provider.titleize)
     end
   end
 end

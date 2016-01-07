@@ -1,6 +1,5 @@
 # Profile controller
 class Dashboard::ProfileController < Dashboard::BaseController
-
   def edit
   end
 
