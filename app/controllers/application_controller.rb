@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     if check_and_get_locale &&
-     I18n.available_locales.include?(check_and_get_locale.to_sym)
+    I18n.available_locales.include?(check_and_get_locale.to_sym)
       session[:locale] = I18n.locale = check_and_get_locale
     else
       session[:locale] = I18n.locale = I18n.default_locale
@@ -34,10 +34,10 @@ class ApplicationController < ActionController::Base
   def current_card
     if current_user.current_block
       @card = current_user.current_block.cards.pending.first ||
-       current_user.current_block.cards.repeating.first
+      current_user.current_block.cards.repeating.first
     else
       @card = current_user.cards.pending.first ||
-       current_user.cards.repeating.first
+      current_user.cards.repeating.first
     end
   end
 
