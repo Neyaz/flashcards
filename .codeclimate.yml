@@ -46,3 +46,5 @@ exclude_paths:
 - "**/bootstrap-*.css.map"
 - "**/bootstrap.js"
 - "**/bootstrap-*.js"
+- "config.ru"
+- "Rakefile"
