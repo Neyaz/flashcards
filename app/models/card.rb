@@ -1,5 +1,7 @@
 require 'super_memo'
 require 'translationable'
+
+#Card model
 class Card < ActiveRecord::Base
   include Translationable
 
@@ -17,7 +19,8 @@ class Card < ActiveRecord::Base
 
   mount_uploader :image, CardImageUploader
 
-  scope :pending, -> { where('review_date <= ?', Time.zone.now).order('RANDOM()') }
+  scope :pending, -> { where('review_date <= ?',
+                      Time.zone.now).order('RANDOM()') }
   scope :repeating, -> { where('quality < ?', 4).order('RANDOM()') }
 
   def self.pending_cards_notification

@@ -1,3 +1,4 @@
+#Home controller
 class Home::HomeController < Home::BaseController
 
   def index

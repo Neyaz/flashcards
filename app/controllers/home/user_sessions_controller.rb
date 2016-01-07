@@ -1,3 +1,4 @@
+#Home user sessions controller
 class Home::UserSessionsController < Home::BaseController
   def new
     if current_user

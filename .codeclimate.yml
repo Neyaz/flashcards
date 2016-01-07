@@ -35,6 +35,7 @@ ratings:
 exclude_paths:
 - config/**/*
 - db/**/*
+- bin/**/*
 - spec/**/*
 - test/**/*
 - vendor/**/*
