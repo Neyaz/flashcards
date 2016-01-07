@@ -20,7 +20,7 @@ module Translationable
     state = true
     if distance <= 1
       sm_hash.merge!(review_date: Time.zone.now + interval.to_i.days,
-                       attempt: 1)
+                     attempt: 1)
     else
       sm_hash.merge!(attempt: [attempt + 1, 5].min)
       state = false

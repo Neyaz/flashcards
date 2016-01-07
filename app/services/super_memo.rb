@@ -1,7 +1,6 @@
 # Algorithm SM-2 used in the computer-based variant of the SuperMemo method and
 # involving the calculation of easiness factors for particular items:
 # http://www.supermemo.com/english/ol/sm2.htm
-
 class SuperMemo
   class << self
     def algorithm(interval, repeat, efactor, attempt, distance, distance_limit)
