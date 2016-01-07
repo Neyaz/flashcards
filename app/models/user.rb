@@ -1,4 +1,4 @@
-#User model
+# User model
 class User < ActiveRecord::Base
   has_many :cards, dependent: :destroy
   has_many :blocks, dependent: :destroy

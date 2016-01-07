@@ -1,7 +1,7 @@
 require 'super_memo'
 require 'translationable'
 
-#Card model
+# Card model
 class Card < ActiveRecord::Base
   include Translationable
 

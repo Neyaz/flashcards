@@ -1,4 +1,4 @@
-#Users controller
+# Users controller
 class Dashboard::UsersController < Dashboard::BaseController
   def destroy
     current_user.destroy

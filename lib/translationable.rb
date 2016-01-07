@@ -1,7 +1,7 @@
 # Module with translation checking functions
 module Translationable
   def check_translation(user_translation)
-    distance = Levenshtein.distance(full_downcase(self.translated_text),
+    distance = Levenshtein.distance(full_downcase(translated_text),
                                     full_downcase(user_translation))
 
     sm_hash = SuperMemo.algorithm(interval,

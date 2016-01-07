@@ -1,4 +1,4 @@
-#Cards controller
+# Cards controller
 class Dashboard::CardsController < Dashboard::BaseController
   before_action :set_card, only: [:destroy, :edit, :update]
 

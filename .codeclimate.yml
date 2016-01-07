@@ -36,6 +36,7 @@ exclude_paths:
 - config/**/*
 - db/**/*
 - bin/**/*
+- services/**/*
 - spec/**/*
 - test/**/*
 - vendor/**/*

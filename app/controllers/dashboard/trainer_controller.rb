@@ -1,4 +1,4 @@
-#Trainer controller
+# Trainer controller
 class Dashboard::TrainerController < Dashboard::BaseController
 
   def index
