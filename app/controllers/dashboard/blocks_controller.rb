@@ -42,7 +42,7 @@ class Dashboard::BlocksController < Dashboard::BaseController
   end
 
   def reset_as_current
-    current_user.reset_current_block
+    current_user.set_current_block
     redirect_to blocks_path
   end
 

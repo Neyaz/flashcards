@@ -26,12 +26,8 @@ class User < ActiveRecord::Base
     authentications.where(provider: 'github').present?
   end
 
-  def set_current_block(block)
+  def set_current_block(block = nil)
     update_attribute(:current_block_id, block.id)
-  end
-
-  def reset_current_block
-    update_attribute(:current_block_id, nil)
   end
 
   private
