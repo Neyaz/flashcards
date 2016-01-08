@@ -1,6 +1,3 @@
-require 'super_memo'
-require 'translationable'
-
 # Card model
 class Card < ActiveRecord::Base
   include Translationable
@@ -24,10 +21,10 @@ class Card < ActiveRecord::Base
     Time.zone.now).order('RANDOM()')
   }
   scope :repeating, -> { where("quality < ?", 4).order('RANDOM()') }
+  scope :with_emails, -> { where.not(email: nil) }
 
   def self.pending_cards_notification
-    users = User.where.not(email: nil)
-    users.each do |user|
+    User.with_emails.each do |user|
       next unless user.cards.pending.any?
       CardsMailer.pending_cards_notification(user.email).deliver
     end
