@@ -1,3 +1,4 @@
+# Card image uploader
 class CardImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
