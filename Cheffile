@@ -1,0 +1,8 @@
+source "https://supermarket.chef.io"
+
+cookbook 'build-essential'
+cookbook 'ruby_build'
+cookbook 'user'
+cookbook 'postgresql'
+cookbook 'yum'
+cookbook 'nodejs'
