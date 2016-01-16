@@ -29,9 +29,12 @@ end
 #   create_group true
 #   ssh_keygen false
 # end
-#
 
-user 'neyaz'
+template "/var/lib/pgsql/data/pg_hba.conf" do
+  source "pg_hba.conf.erb"
+  action :create
+  mode 0644
+end
 
 execute "install_gems" do
   command "cd /flashcards && bundle install"
@@ -42,5 +45,5 @@ execute "migrate" do
 end
 
 execute "start_server" do
-  command "cd /flashcards && rails -s"
+  command "cd /flashcards && rails s -b 0.0.0.0"
 end
